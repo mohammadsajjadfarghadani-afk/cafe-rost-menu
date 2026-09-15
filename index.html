@@ -3,86 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17120f">
+<meta name="description" content="منوی دیجیتال CAFE ROST">
+
 <title>CAFE ROST | منو</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #120e0c;
+    --card: #211814;
+    --card2: #2a1d17;
+    --orange: #f28a22;
+    --orange2: #ffad52;
+    --cream: #f8eee2;
+    --muted: #b9a99c;
+    --border: rgba(242,138,34,.22);
+    --shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #171310;
-    color: #fff;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(242,138,34,.10), transparent 35%),
+        radial-gradient(circle at 100% 20%, rgba(242,138,34,.06), transparent 30%),
+        var(--bg);
+    color: var(--cream);
+    font-family: "Vazirmatn", Arial, sans-serif;
+}
+
+button {
+    font-family: inherit;
 }
 
 .container {
-    max-width: 700px;
+    width: min(100% - 28px, 720px);
     margin: auto;
-    padding: 25px 18px 50px;
 }
+
+/* HEADER */
 
 .header {
     text-align: center;
-    padding: 25px 10px 35px;
+    padding: 38px 0 25px;
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 145px;
+    height: 145px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 15px;
+    border: 4px solid var(--orange);
+    box-shadow: 0 0 35px rgba(242,138,34,.18);
 }
 
-h1 {
-    margin: 5px 0;
-    font-size: 42px;
-    letter-spacing: 3px;
-    color: #f28a22;
+.brand {
+    margin-top: 18px;
+    font-size: clamp(34px, 10vw, 52px);
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--orange);
 }
 
-.subtitle {
-    color: #e8d7c2;
-    font-size: 16px;
+.tagline {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 14px;
 }
 
-.section {
-    background: #211c19;
-    border: 1px solid #70401f;
-    border-radius: 22px;
-    padding: 22px;
-    margin: 18px 0;
-    box-shadow: 0 8px 25px rgba(0,0,0,.3);
+/* VIEW */
+
+.view {
+    animation: fadeIn .35s ease;
 }
 
-.section-title {
-    color: #f28a22;
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #70401f;
-    padding-bottom: 12px;
+.hidden {
+    display: none !important;
 }
 
-.item {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* WELCOME */
+
+.welcome {
+    text-align: center;
+    margin: 20px 0 25px;
+}
+
+.welcome h2 {
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.welcome p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CATEGORY GRID */
+
+.categories {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.category {
+    width: 100%;
+    min-height: 115px;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background:
+        linear-gradient(145deg, rgba(255,255,255,.04), transparent),
+        var(--card);
+    color: var(--cream);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 14px 4px;
-    font-size: 20px;
+    gap: 18px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: right;
+    box-shadow: var(--shadow);
+    transition: transform .2s ease, border-color .2s ease;
 }
 
-.item span:last-child {
-    color: #f28a22;
+.category:active {
+    transform: scale(.97);
 }
+
+.category-icon {
+    min-width: 65px;
+    height: 65px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: rgba(242,138,34,.12);
+    font-size: 32px;
+}
+
+.category-info {
+    flex: 1;
+}
+
+.category-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.category-subtitle {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.arrow {
+    color: var(--orange);
+    font-size: 25px;
+}
+
+/* MENU PAGE */
+
+.menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.back-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--cream);
+    padding: 11px 17px;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.menu-title {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--orange);
+}
+
+/* PRODUCTS */
+
+.products {
+    display: grid;
+    gap: 18px;
+    padding-bottom: 30px;
+}
+
+.product {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+.product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    background: var(--card2);
+}
+
+.product-content {
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.product-en {
+    direction: ltr;
+    text-align: right;
+    color: var(--orange);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.product-description {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.price {
+    color: var(--orange2);
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.order-btn {
+    border: 0;
+    background: var(--orange);
+    color: #1a1009;
+    font-weight: 800;
+    padding: 10px 15px;
+    border-radius: 13px;
+}
+
+/* FOOTER */
 
 .footer {
     text-align: center;
-    margin-top: 35px;
-    color: #d8c5b0;
-    font-size: 15px;
+    color: var(--muted);
+    padding: 25px 0 40px;
+    font-size: 13px;
+}
+
+.footer strong {
+    color: var(--orange);
+}
+
+/* DESKTOP */
+
+@media (min-width: 600px) {
+    .categories {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .category:first-child {
+        grid-column: span 2;
+    }
 }
 </style>
 </head>
@@ -91,58 +308,275 @@ h1 {
 
 <div class="container">
 
-<header class="header">
+    <!-- HEADER -->
+    <header class="header">
+        <img
+            src="1D63084F-554E-40D1-8DC5-F50961EB97BF.png"
+            class="logo"
+            alt="CAFE ROST"
+        >
 
-<img src="1D63084F-554E-40D1-8DC5-F50961EB97BF.png" class="logo">
+        <div class="brand">CAFE ROST</div>
 
-<h1>CAFE ROST</h1>
+        <div class="tagline">
+            Good Coffee • Better Mood
+        </div>
+    </header>
 
-<div class="subtitle">
-Good Coffee • Better Mood
+
+    <!-- MAIN MENU -->
+    <main id="homeView" class="view">
+
+        <div class="welcome">
+            <h2>به کافه رُست خوش آمدید ☕</h2>
+            <p>دسته‌بندی مورد نظر خود را انتخاب کنید</p>
+        </div>
+
+        <section class="categories">
+
+            <button class="category" onclick="openCategory('cold')">
+
+                <div class="category-icon">🧊</div>
+
+                <div class="category-info">
+                    <div class="category-title">
+                        منوی سرد
+                    </div>
+
+                    <div class="category-subtitle">
+                        نوشیدنی‌های خنک و دلچسب
+                    </div>
+                </div>
+
+                <div class="arrow">←</div>
+
+            </button>
+
+
+            <button class="category" onclick="openCategory('hot')">
+
+                <div class="category-icon">☕</div>
+
+                <div class="category-info">
+                    <div class="category-title">
+                        منوی گرم
+                    </div>
+
+                    <div class="category-subtitle">
+                        قهوه و نوشیدنی‌های گرم
+                    </div>
+                </div>
+
+                <div class="arrow">←</div>
+
+            </button>
+
+
+            <button class="category" onclick="openCategory('dessert')">
+
+                <div class="category-icon">🍰</div>
+
+                <div class="category-info">
+                    <div class="category-title">
+                        دسر
+                    </div>
+
+                    <div class="category-subtitle">
+                        شیرین و خوشمزه
+                    </div>
+                </div>
+
+                <div class="arrow">←</div>
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- CATEGORY MENU -->
+    <section id="categoryView" class="view hidden">
+
+        <div class="menu-top">
+
+            <button class="back-btn" onclick="goHome()">
+                ← بازگشت
+            </button>
+
+            <div id="categoryTitle" class="menu-title">
+                منو
+            </div>
+
+        </div>
+
+        <div id="products" class="products"></div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        یک فنجان خوشحالی... ☕🧡
+        <br><br>
+        <strong>CAFE ROST</strong>
+    </footer>
+
 </div>
 
-</header>
 
-<div class="section">
+<script>
 
-<div class="section-title">🧊 منوی سرد</div>
+/* =========================
+   اطلاعات منو
+========================= */
 
-<div class="item">
-<span>ایس آمریکانو</span>
-<span>☕</span>
-</div>
+const menu = {
 
-</div>
+    cold: {
+        title: "🧊 منوی سرد",
 
-<div class="section">
+        products: [
 
-<div class="section-title">🔥 منوی گرم</div>
+            {
+                name: "ایس آمریکانو",
+                en: "Iced Americano",
+                description: "اسپرسوی خالص همراه با آب و یخ؛ خنک، ساده و پرانرژی.",
+                price: "قیمت به‌زودی",
+                image: "1D63084F-554E-40D1-8DC5-F50961EB97BF.png"
+            }
 
-<div class="item">
-<span>اسپرسو</span>
-<span>☕</span>
-</div>
+        ]
+    },
 
-</div>
 
-<div class="section">
+    hot: {
+        title: "☕ منوی گرم",
 
-<div class="section-title">🍰 دسر</div>
+        products: [
 
-<div class="item">
-<span>تیرامیسو</span>
-<span>🍰</span>
-</div>
+            {
+                name: "اسپرسو",
+                en: "Espresso",
+                description: "شات اسپرسوی خوش‌عطر و غلیظ، مناسب برای شروع یک روز خوب.",
+                price: "قیمت به‌زودی",
+                image: "1D63084F-554E-40D1-8DC5-F50961EB97BF.png"
+            }
 
-</div>
+        ]
+    },
 
-<div class="footer">
-یک فنجان خوشحالی... ☕🧡
-<br><br>
-CAFE ROST
-</div>
 
-</div>
+    dessert: {
+        title: "🍰 دسر",
+
+        products: [
+
+            {
+                name: "تیرامیسو",
+                en: "Tiramisu",
+                description: "دسر کلاسیک ایتالیایی با طعم قهوه و بافتی لطیف و خامه‌ای.",
+                price: "قیمت به‌زودی",
+                image: "1D63084F-554E-40D1-8DC5-F50961EB97BF.png"
+            }
+
+        ]
+    }
+
+};
+
+
+/* =========================
+   باز کردن دسته
+========================= */
+
+function openCategory(category) {
+
+    const data = menu[category];
+
+    document.getElementById("homeView")
+        .classList.add("hidden");
+
+    document.getElementById("categoryView")
+        .classList.remove("hidden");
+
+    document.getElementById("categoryTitle")
+        .textContent = data.title;
+
+    const products =
+        document.getElementById("products");
+
+    products.innerHTML = "";
+
+    data.products.forEach(product => {
+
+        const card = document.createElement("article");
+
+        card.className = "product";
+
+        card.innerHTML = `
+
+            <img
+                src="${product.image}"
+                class="product-image"
+                alt="${product.name}"
+            >
+
+            <div class="product-content">
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+                <div class="product-en">
+                    ${product.en}
+                </div>
+
+                <div class="product-description">
+                    ${product.description}
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        ${product.price}
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+        products.appendChild(card);
+
+    });
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+   برگشت به صفحه اصلی
+========================= */
+
+function goHome() {
+
+    document.getElementById("categoryView")
+        .classList.add("hidden");
+
+    document.getElementById("homeView")
+        .classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
 
 </body>
 </html>
